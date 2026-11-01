@@ -1,0 +1,59 @@
+Q1. What are the different types of expressions?
+--->
+An expression is a combination of operands (variables or constants such as a, b, 5) and operators (such as +, -, *, /, ^). 
+There are three notations, and they differ only in where the operator is placed relative to its operands.
+
+Infix: the operator sits between its operands, e.g. a + b. This is the normal notation we write in maths. 
+It needs parentheses and precedence/associativity rules to be evaluated correctly. 
+For example, in a + b * c the * is done first because it has higher precedence.
+Prefix (Polish notation): the operator comes before its operands, e.g. + a b.
+Postfix (Reverse Polish notation): the operator comes after its operands, e.g. a b +.
+
+Prefix and postfix don't need parentheses or precedence rules, because the position of the operators already fixes the order of evaluation.
+
+Q2. Give examples of all types of expressions. 
+--->
+Infix             	Prefix              	Postfix
+a + b              	+ a b	                 a b +
+a + b * c	         + a * b c	            a b c * +
+(a + b) * c     	 * + a b c             	a b + c *
+a * b + c * d	   + * a b * c d         	a b * c d * +
+
+In a + b * c, the multiplication has higher precedence, so it is grouped first as a + (b*c).
+Converting gives * b c in prefix and b c * in postfix, and then the + is placed accordingly.
+
+Q3. Which data structure is used for evaluating expressions?
+--->
+A stack, which works on the LIFO (Last In, First Out) principle.
+
+Postfix evaluation:
+Scan the expression from left to right.
+If the symbol is an operand, push it onto the stack.
+If it is an operator, pop two operands (the first pop is op2, the second is op1), apply the operator as op1 operator op2, and push the result back.
+At the end, the single value left on the stack is the answer.
+
+This is exactly what your program does with push() and pop().
+A stack is also used to convert infix to postfix, where it holds operators temporarily until their turn comes according to precedence.
+It suits this job because the most recently seen operands are always the ones the next operator needs.
+
+Q4. Convert infix a+b+c+d to prefix
+--->
+The + operator is left-associative, so the expression is grouped as ((a+b)+c)+d.
+
+Step by step:
+
+a+b becomes +ab
+(a+b)+c becomes + (+ab) c, which is ++abc
+((a+b)+c)+d becomes + (++abc) d, which is +++abcd
+
+Answer: +++abcd
+
+Q5. Convert infix a+b+c+d to postfix
+--->
+Using the same grouping ((a+b)+c)+d:
+
+a+b becomes ab+
+(a+b)+c becomes ab+ c +, which is ab+c+
+((a+b)+c)+d becomes ab+c+ d +, which is ab+c+d+
+
+Answer: ab+c+d+
