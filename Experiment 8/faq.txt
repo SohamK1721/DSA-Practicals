@@ -1,0 +1,15 @@
+Q1.What are the different types of expressions? 
+Ans:Infix, Prefix, Postfix
+
+Q2.Give examples of all types of expressions. 
+Ans: Infix: a+b
+Prefix: +ab Postfix: ab+
+
+Q3.Which data structure is used for evaluation of expression?
+Ans: Stack
+
+Q4.Convert infix expression a+b+c+d to prefix expression.
+Ans:+++abcd
+
+Q5.Convert infix expression a+b+c+d to postfix expression. 
+Ans: ab+c+d+
