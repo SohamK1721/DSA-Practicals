@@ -1,0 +1,50 @@
+1. What is a Queue?
+
+A queue is a linear data structure that follows the FIFO (First In, First Out) principle. Data is inserted at one end, called the rear, and removed from the other end, called the front. The element added first is the first one to be removed, just like people standing in a line at a ticket counter. The two basic operations are enqueue (insertion at the rear) and dequeue (deletion from the front).
+
+
+2. How is a Queue represented?
+
+A queue can be represented in two ways:
+
+Using an array: A fixed-size array is used, with two variables, front and rear, tracking where deletion and insertion happen. It is simple to implement, but the size is fixed in advance.
+Using a linked list: Each element is a node holding data and a pointer to the next node. The queue grows and shrinks dynamically, so there is no fixed size limit and memory is used efficiently.
+
+
+3. Enlist the types of queues.
+
+Linear queue: A simple queue where insertion happens at the rear and deletion at the front, following FIFO strictly.
+Circular queue: A queue in which the last position is connected back to the first, forming a circle.
+Priority queue: A queue in which each element has a priority, and elements are processed according to that priority.
+Double-ended queue (Deque): A queue where insertion and deletion can happen at both ends.
+
+
+4. What is the concept of a circular queue?
+
+In a circular queue, the last node is connected back to the first node, so the structure forms a circle. This solves a major problem of the linear queue: in a linear queue, once the rear reaches the end of the array, no new element can be inserted even if free space exists at the front (because earlier elements were deleted). In a circular queue, the rear wraps around to the beginning and reuses that empty space, so memory is used efficiently. The wrap-around is usually done with the formula rear = (rear + 1) % size.
+
+
+5. Applications of Queue
+
+Categorizing the data: Queues help group and process data in the order it arrives, such as sorting items into categories while keeping their original order.
+Queue simulation: Real-life waiting lines, such as customers at a bank, ticket counter, or supermarket billing, can be simulated using queues to study waiting time and service efficiency.
+
+Other common uses include CPU scheduling, printer spooling, and handling requests in call centers.
+
+
+6. What is a Priority Queue?
+
+A priority queue is a collection of elements in which each element is assigned a priority. The order in which elements are deleted and processed is determined by these rules:
+
+An element of higher priority is processed before any element of lower priority.
+Two elements with the same priority are processed in the order in which they were added to the queue (FIFO among equals).
+
+Example: In a hospital, an emergency patient is treated before a patient with a routine check-up, regardless of who arrived first.
+
+
+7. What is a Deque?
+
+The term deque is a contraction of double-ended queue. It is a linear list in which elements can be added or removed at either end, front or rear, but not in the middle. This makes it more flexible than a normal queue, since it can work as both a stack and a queue. Two common variants are:
+
+Input-restricted deque: Insertion is allowed at one end only, while deletion is allowed at both ends.
+Output-restricted deque: Deletion is allowed at one end only, while insertion is allowed at both ends.
